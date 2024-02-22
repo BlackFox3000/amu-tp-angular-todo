@@ -19,15 +19,16 @@ import { Tasks } from './types/task';
   // appels Ã  d'autres composants Angular
   template: `
   <div id="app">
-        <h1>La Todo App</h1>
+         <h1>La Todo App</h1>
 
-        <main>
-          <app-todo-list
-            [tasks]="tasks"
-          ></app-todo-list>
-        </main>
-    </div>
-  `,
+         <main>
+           <app-todo-list
+             [tasks]="tasks"
+           ></app-todo-list>
+           <app-task-form></app-task-form>
+         </main>
+     </div>
+   `,
   // Les styles nous permettent de crÃ©er des styles CSS *scopÃ©s*
   // C'est Ã  dire que les rÃ¨gles dÃ©finies ici ne s'appliqueront que sur
   // le template de ce composant, et pas en dehors
