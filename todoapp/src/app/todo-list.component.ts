@@ -1,12 +1,10 @@
 // src/app/todo-list.component.ts
 
 import { Component, Input } from "@angular/core";
+import { Tasks } from './types/task';
+
 // Définition du type d'un élément de la liste des tâches
-interface Task {
-    id: number;
-    text: string;
-    done: boolean;
-}
+
 
 @Component({
     // Ce composant sera affichÃ© par Angular Ã  chaque fois
@@ -30,11 +28,6 @@ interface Task {
     `
 })
 export class TodoListComponent {
-    // Le dÃ©corateur Input permet de spÃ©cifier Ã  Angular
-    // que cette donnÃ©e tasks pourra Ãªtre renseignÃ©e depuis
-    // l'extÃ©rieur du composant. Par dÃ©faut, le tableau sera vide
-    // mais il prendra la valeur qu'on lui donne depuis l'extÃ©rieur
-    // si c'est le cas
     @Input()
-    tasks: Task[] = [];
+    tasks: Tasks = [];
 }

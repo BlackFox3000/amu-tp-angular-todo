@@ -7,6 +7,7 @@
 // 3. Il aura des styles scopÃ©s ;
 // Et beaucoup d'autres choses encore
 import { Component } from '@angular/core';
+import { Tasks } from './types/task';
 
 @Component({
   // Le sÃ©lecteur du composant permet de dire Ã  Angular
@@ -35,7 +36,7 @@ import { Component } from '@angular/core';
 // app/app.component.ts
 
 export class AppComponent {
-  tasks = [
+  tasks: Tasks = [
     { id: 1, text: "Aller faire des courses", done: false },
     { id: 2, text: "Faire à manger", done: true },
   ];
