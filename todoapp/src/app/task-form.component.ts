@@ -1,6 +1,6 @@
 // src/app/task-form.component.ts
 
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
@@ -25,11 +25,23 @@ export class TaskFormComponent {
     // Ces deux classes (FormGroup et FormControl) vont nous donner
     // toutes les fonctionnalités nécessaires à gérer des champs de
     // formulaires et en extraire les données !
+   @Output()
+    onNewTask = new EventEmitter<string>();
+
     form = new FormGroup({
         text: new FormControl()
     });
 
     onSubmit() {
-            console.log(this.form.value);
-        }
+        // Au moment de la soumission, on va déclencher un événement
+        // Et la donnée que l'on va émettre sera la valeur du champ
+        // "text" qui se trouve dans notre formulaire !
+        this.onNewTask.emit(this.form.value.text);
+
+        // On pourra même réinitialiser la valeur du formulaire
+        // une fois que le traitement sera terminé :
+        this.form.setValue({
+            text: ''
+        });
+    }
 }
