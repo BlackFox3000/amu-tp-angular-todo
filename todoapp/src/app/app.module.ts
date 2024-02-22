@@ -9,26 +9,20 @@ import { TaskFormComponent } from './task-form.component';
 import { TodoListComponent } from './todo-list.component';
 
 import { HttpClientModule } from "@angular/common/http";
+import { TasksService } from './api/tasks.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TaskFormComponent
+    TaskFormComponent,
   ],
   imports: [
     BrowserModule,
-    // En important le ReactiveFormsModule, on importe des
-    // composants, directives et services qu'il met à notre
-    // disposition !
     ReactiveFormsModule,
-    // En important le HttpClientModule, on rend disponible dans notre
-    // application un service crucial, une instance de la classe HttpClient
-    // On pourra utiliser cet objet dans nos composants pour effectuer
-    // des requêtes HTTP :
     HttpClientModule
   ],
-  providers: [],
+  providers: [TasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
